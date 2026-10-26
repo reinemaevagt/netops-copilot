@@ -1,0 +1,54 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-8.3.4, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: netops-copilot
+configfile: pytest.ini
+testpaths: tests
+plugins: platformdirs-4.12.4, anyio-4.15.1
+collecting ... collected 44 items
+
+tests/test_detection.py::test_rules_normal_measure_is_not_flagged PASSED [  2%]
+tests/test_detection.py::test_rules_thresholds[latency_ms-25.0-avertissement] PASSED [  4%]
+tests/test_detection.py::test_rules_thresholds[latency_ms-60.0-critique] PASSED [  6%]
+tests/test_detection.py::test_rules_thresholds[packet_loss_pct-2.0-avertissement] PASSED [  9%]
+tests/test_detection.py::test_rules_thresholds[packet_loss_pct-5.0-critique] PASSED [ 11%]
+tests/test_detection.py::test_rules_thresholds[cpu_pct-85.0-avertissement] PASSED [ 13%]
+tests/test_detection.py::test_rules_thresholds[memory_pct-96.0-critique] PASSED [ 15%]
+tests/test_detection.py::test_rules_unavailable_device_is_critical_even_with_missing_values PASSED [ 18%]
+tests/test_detection.py::test_rules_missing_cpu_does_not_create_alert PASSED [ 20%]
+tests/test_detection.py::test_custom_thresholds_are_applied PASSED       [ 22%]
+tests/test_detection.py::test_isolation_forest_false_positive_rate_is_bounded_on_normal_data PASSED [ 25%]
+tests/test_detection.py::test_isolation_forest_detects_server_overload_with_explanation PASSED [ 27%]
+tests/test_detection.py::test_isolation_forest_skips_unreachable_and_incomplete_rows PASSED [ 29%]
+tests/test_detection.py::test_isolation_forest_requires_training PASSED  [ 31%]
+tests/test_detection.py::test_compare_methods_counts_are_consistent PASSED [ 34%]
+tests/test_diagnosis_kpi.py::test_normal_scenario_has_no_major_incident PASSED [ 36%]
+tests/test_diagnosis_kpi.py::test_each_fault_scenario_produces_the_expected_root_incident[latence_elevee-fw-01-latence] PASSED [ 38%]
+tests/test_diagnosis_kpi.py::test_each_fault_scenario_produces_the_expected_root_incident[perte_paquets-sw-srv-01-perte_paquets] PASSED [ 40%]
+tests/test_diagnosis_kpi.py::test_each_fault_scenario_produces_the_expected_root_incident[routeur_indisponible-rtr-edge-01-indisponibilite] PASSED [ 43%]
+tests/test_diagnosis_kpi.py::test_each_fault_scenario_produces_the_expected_root_incident[serveur_surcharge-srv-app-01-surcharge] PASSED [ 45%]
+tests/test_diagnosis_kpi.py::test_downstream_incidents_are_correlated_to_upstream_root_cause PASSED [ 47%]
+tests/test_diagnosis_kpi.py::test_incident_status_reflects_whether_fault_is_ongoing PASSED [ 50%]
+tests/test_diagnosis_kpi.py::test_router_incident_mentions_internet_impact PASSED [ 52%]
+tests/test_diagnosis_kpi.py::test_isolated_spikes_do_not_open_incidents PASSED [ 54%]
+tests/test_diagnosis_kpi.py::test_device_status_and_replay PASSED        [ 56%]
+tests/test_diagnosis_kpi.py::test_kpis_are_computed_correctly_on_known_data PASSED [ 59%]
+tests/test_diagnosis_kpi.py::test_pipeline_kpis_match_scenarios PASSED   [ 61%]
+tests/test_diagnosis_kpi.py::test_validate_metrics_rejects_bad_inputs PASSED [ 63%]
+tests/test_diagnosis_kpi.py::test_csv_round_trip_through_pipeline PASSED [ 65%]
+tests/test_diagnosis_kpi.py::test_incident_export_flattens_lists PASSED  [ 68%]
+tests/test_simulation.py::test_topology_contains_required_device_types PASSED [ 70%]
+tests/test_simulation.py::test_downstream_devices_follow_probe_paths PASSED [ 72%]
+tests/test_simulation.py::test_metrics_shape_and_columns PASSED          [ 75%]
+tests/test_simulation.py::test_generation_is_reproducible_with_seed PASSED [ 77%]
+tests/test_simulation.py::test_normal_scenario_has_no_injected_fault PASSED [ 79%]
+tests/test_simulation.py::test_router_down_scenario_makes_router_unreachable PASSED [ 81%]
+tests/test_simulation.py::test_packet_loss_propagates_to_downstream_servers PASSED [ 84%]
+tests/test_simulation.py::test_server_overload_raises_cpu_and_memory PASSED [ 86%]
+tests/test_simulation.py::test_every_scenario_generates_valid_data[normal] PASSED [ 88%]
+tests/test_simulation.py::test_every_scenario_generates_valid_data[latence_elevee] PASSED [ 90%]
+tests/test_simulation.py::test_every_scenario_generates_valid_data[perte_paquets] PASSED [ 93%]
+tests/test_simulation.py::test_every_scenario_generates_valid_data[routeur_indisponible] PASSED [ 95%]
+tests/test_simulation.py::test_every_scenario_generates_valid_data[serveur_surcharge] PASSED [ 97%]
+tests/test_simulation.py::test_invalid_parameters_raise_clear_errors PASSED [100%]
+
+============================== 44 passed in 8.84s ==============================
